@@ -19,13 +19,13 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Blackora Animation AI","applicationCategory":"MultimediaApplication","operatingSystem":"Android, iOS, Windows, macOS, Web","description":"मुफ़्त 2D कार्टून एनिमेशन वीडियो मेकर","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"}}</script>
 <style>
-:root{--bg:#0d0f14;--panel:#161a22;--panel2:#1d222c;--line:#2a3040;--text:#e8ebf2;--mute:#8b93a7;--acc:#7c5cff;--acc2:#22d3ee;--ok:#22c55e;--bad:#ef4444}
-body.light{--bg:#f3f5fa;--panel:#fff;--panel2:#eef1f7;--line:#d9deea;--text:#1a1e29;--mute:#667088}
+:root{--bg:#070a08;--panel:#0e1411;--panel2:#15201a;--line:#1f3228;--text:#e8f3ec;--mute:#86a091;--acc:#2bff88;--acc2:#00d1a0;--ink:#04140b;--ok:#22c55e;--bad:#ef4444}
+body.light{--bg:#f3f5fa;--panel:#fff;--panel2:#eef1f7;--line:#d9deea;--text:#1a1e29;--mute:#667088;--acc:#0a9a52;--acc2:#00a37a;--ink:#fff}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-size:14px}
 button{font:inherit;color:inherit;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
 button:hover{border-color:var(--acc)}
-button.pri{background:linear-gradient(135deg,var(--acc),var(--acc2));border:0;color:#fff;font-weight:600}
+button.pri{background:linear-gradient(135deg,var(--acc),var(--acc2));border:0;color:var(--ink);font-weight:700}
 button.sm{padding:5px 9px;font-size:12px;border-radius:8px}
 input,select,textarea{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:9px 11px;width:100%;outline:none}
 input:focus,textarea:focus{border-color:var(--acc)}
@@ -50,20 +50,20 @@ input:focus,textarea:focus{border-color:var(--acc)}
 .fav.on{opacity:1}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:4px 0 12px}
 .chip{white-space:nowrap;padding:6px 12px;border-radius:99px;background:var(--panel2);border:1px solid var(--line);cursor:pointer;font-size:12px;color:var(--mute)}
-.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.chip.on{background:var(--acc);color:var(--ink);border-color:var(--acc)}
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
 .tile{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px 12px;text-align:center;cursor:pointer}
 .tile:hover{border-color:var(--acc);transform:translateY(-2px)}
 .tile .em{font-size:34px}
 .tile b{display:block;margin-top:6px}
 h3{margin:18px 0 10px;font-size:15px}
-.hero{background:linear-gradient(135deg,#3b2a8f,#0e7490);border-radius:18px;padding:22px;margin-bottom:8px}
+.hero{background:linear-gradient(135deg,#06351f,#0a7a4f);border-radius:18px;padding:22px;margin-bottom:8px}
 .hero h1{font-size:22px;margin-bottom:6px;color:#fff}
-.hero p{color:#dbeafe;margin-bottom:14px}
+.hero p{color:#c9f7dc;margin-bottom:14px}
 .list .it{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:8px;flex-wrap:wrap}
 .list .it .t{flex:1;min-width:100px}
 .list .it small{color:var(--mute)}
-#editor{display:none;flex-direction:column;height:100%}
+#editor{display:none;flex-direction:column;height:100%;min-width:0;max-width:100vw;overflow:hidden}
 #editor.show{display:flex}
 .etop{display:flex;gap:6px;align-items:center;padding:8px 10px;background:var(--panel);border-bottom:1px solid var(--line);overflow-x:auto;flex-shrink:0}
 .etop button,.etop .seg{flex-shrink:0}
@@ -98,7 +98,7 @@ h3{margin:18px 0 10px;font-size:15px}
 .prop label{font-size:11px;color:var(--mute);width:100%}
 .prop input[type=range]{padding:0}
 .seg{display:flex;gap:6px;flex-wrap:wrap}
-.seg button.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.seg button.on{background:var(--acc);border-color:var(--acc);color:var(--ink)}
 #modal{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;z-index:100;padding:16px}
 #modal.show{display:flex}
 .mbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:18px;width:100%;max-width:440px;max-height:90vh;overflow:auto}
@@ -110,7 +110,7 @@ h3{margin:18px 0 10px;font-size:15px}
 .rc:hover{border-color:var(--acc)}
 .rc .box{margin:0 auto 8px;background:linear-gradient(135deg,var(--acc),var(--acc2));border-radius:6px}
 .rc small{display:block;color:var(--mute);font-size:10px;margin-top:2px}
-#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--acc);color:#fff;padding:10px 16px;border-radius:99px;display:none;z-index:120;max-width:90%;text-align:center}
+#toast{position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--acc);color:var(--ink);padding:10px 16px;border-radius:99px;display:none;z-index:120;max-width:90%;text-align:center}
 #login{position:fixed;inset:0;z-index:80;overflow:auto;color:#f2f4fa;background:radial-gradient(900px 600px at 25% 45%,rgba(91,115,255,.22),transparent 60%),radial-gradient(600px 400px at 85% 95%,rgba(255,224,27,.07),transparent 60%),#090b12}
 #login.off{background:radial-gradient(900px 600px at 25% 45%,rgba(91,115,255,.08),transparent 60%),#04050a}
 #fireflies{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
@@ -163,6 +163,16 @@ h3{margin:18px 0 10px;font-size:15px}
  .lg-card{padding:20px 18px 14px}
 }
 .cut{background:repeating-conic-gradient(#888 0 25%,#666 0 50%) 50%/16px 16px;border-radius:12px}
+.hnd{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--acc);border:3px solid #fff;box-shadow:0 2px 8px #000a;touch-action:none;z-index:5}
+.hnd.rs{right:-18px;bottom:-18px;cursor:nwse-resize}
+.hnd.ro{left:50%;top:-46px;margin-left:-13px;cursor:grab;background:#fff;border-color:var(--acc)}
+button.on{background:var(--acc);color:var(--ink);border-color:var(--acc)}
+.pgrp{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}
+.pgrp>b{font-size:12px;color:var(--acc)}
+.pnum{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pnum label{font-size:11px;color:var(--mute)}
+.layers{width:236px}
+input[type=range]{accent-color:var(--acc)}
 #bnav{display:none}
 @media(max-width:800px){
  #side{display:none!important}
@@ -564,7 +574,7 @@ function projList(arr){
  return '<div class="list">'+arr.map(p=>`<div class="it"><div style="font-size:26px">🎞️</div><div class="t"><b>${esc(p.name)}</b><br><small>${p.scenes.length} सीन • ${p.ratio} • ${new Date(p.t).toLocaleDateString()}</small></div>
  <button class="sm" onclick="openProject('${p.id}')">${t('Open')}</button><button class="sm" onclick="renameProject('${p.id}')">${t('Rename')}</button><button class="sm" onclick="dupProject('${p.id}')">${t('Copy')}</button><button class="sm" onclick="delProject('${p.id}')">🗑️</button></div>`).join('')+'</div>';
 }
-function projects(){return topbar(t('My Projects'),`<button class="pri sm" onclick="newProject()">＋ ${t('New Project')}</button>`)+`<div class="wrap">${projList(S.projects)}</div>`}
+function projects(){return topbar(t('My Projects'),`<button class="sm" onclick="importProject()">⬆ Import</button><button class="pri sm" onclick="newProject()">＋ ${t('New Project')}</button>`)+`<div class="wrap">${projList(S.projects)}</div>`}
 function templates(){
  return topbar(t('Templates'))+`<div class="wrap"><div class="tiles">${Object.keys(SCENEBG).map(k=>`<div class="tile" onclick="newProject('${k}')"><div style="height:60px;border-radius:10px;background:${SCENEBG[k]}"></div><b>${k}</b></div>`).join('')}</div>
  <h3>मेरे टेम्पलेट</h3>${S.myTemplates.length?'<div class="list">'+S.myTemplates.map(x=>`<div class="it"><div class="t"><b>${esc(x.name)}</b></div><button class="sm pri" onclick="useTemplate('${x.id}')">इस्तेमाल करो</button><button class="sm" onclick="delMy('myTemplates','${x.id}')">🗑</button></div>`).join('')+'</div>':'<div class="card" style="color:var(--mute)">एडिटर में "टेम्पलेट सेव" दबाओ, यहाँ दिखेगा</div>'}</div>`;
@@ -829,16 +839,53 @@ function openProject(id){P=S.projects.find(p=>p.id===id);if(!P)return;P.cur=0;se
 function renameProject(id){const p=S.projects.find(x=>x.id===id),n=prompt('नया नाम',p.name);if(n){p.name=n;save();go(view)}}
 function dupProject(id){const p=S.projects.find(x=>x.id===id),c=JSON.parse(JSON.stringify(p));c.id=uid();c.name=p.name+' कॉपी';S.projects.unshift(c);save();go(view)}
 function delProject(id){if(!confirm('हटाना है?'))return;S.projects=S.projects.filter(p=>p.id!==id);if(P&&P.id===id)P=null;save();go(view)}
+/* ===== प्रोजेक्ट फ़ाइल: सेव (JSON) / इम्पोर्ट ===== */
+function exportJSON(){
+ if(!P)return;
+ const blob=new Blob([JSON.stringify({app:'Blackora',v:3,project:P})],{type:'application/json'});
+ const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=(P.name||'project')+'.blackora.json';a.click();
+ setTimeout(()=>URL.revokeObjectURL(a.href),4000);toast('✅ प्रोजेक्ट फ़ाइल डाउनलोड हो गई');
+}
+function cleanProject(p){
+ const num=(v,d,a,b)=>{v=Number(v);return isFinite(v)?Math.max(a,Math.min(b,v)):d};
+ const str=(v,n)=>String(v==null?'':v).replace(/["<>\\{}]/g,'').slice(0,n||300);
+ const pk=(v,M)=>(M[v]!==undefined?v:'None');
+ const el=e=>{
+  let type=['text','emoji','img'].includes(e.type)?e.type:'emoji',content=str(e.content,type==='img'?3e6:200);
+  if(type==='img'&&!/^(data:image\/|https:\/\/)/.test(content)){type='emoji';content='🖼️'}
+  return {id:uid(),type,content,name:str(e.name,40)||content.slice(0,10),x:num(e.x,50,0,100),y:num(e.y,50,0,100),size:num(e.size,70,8,400),rot:num(e.rot,0,-360,360),op:num(e.op,1,0,1),
+   color:/^#[0-9a-f]{3,8}$/i.test(e.color)?e.color:'#ffffff',hidden:!!e.hidden,locked:!!e.locked,in:pk(e.in,A_IN),out:pk(e.out,A_OUT),loop:pk(e.loop||e.anim,A_LOOP),
+   delay:num(e.delay,0,0,10),adur:num(e.adur,.6,.2,3),odur:num(e.odur,.6,.2,3),lspd:num(e.lspd,1,.3,3)};
+ };
+ const music=Object.values(MUSIC).flat().includes(p.music)?p.music:null;
+ return {id:uid(),name:str(p.name,60)||'प्रोजेक्ट',ratio:RATIOS[p.ratio]?p.ratio:'16:9',fps:30,res:'1080p',music,voice:findVoice(p.voice)?p.voice:null,t:Date.now(),cur:0,
+  scenes:(Array.isArray(p.scenes)?p.scenes:[]).slice(0,60).map(sc=>({id:uid(),bg:str(sc.bg,2000)||'#334155',dur:num(sc.dur,3,1,30),name:str(sc.name,40)||'सीन',zoom:num(sc.zoom,100,100,200),
+   trans:TRANS.includes(sc.trans)?sc.trans:'None',narr:str(sc.narr,500),els:(Array.isArray(sc.els)?sc.els:[]).slice(0,200).map(el)}))};
+}
+function importProject(){
+ const f=document.createElement('input');f.type='file';f.accept='.json,application/json';
+ f.onchange=()=>{const r=new FileReader();r.onload=()=>{try{
+  const d=JSON.parse(r.result),p=cleanProject(d.project||d);if(!p.scenes.length)throw 0;
+  p.name+=' (import)';S.projects.unshift(p);save();toast('✅ प्रोजेक्ट जुड़ गया');go('projects');
+ }catch(e){toast('यह सही प्रोजेक्ट फ़ाइल नहीं है')}};r.readAsText(f.files[0])};
+ f.click();
+}
+
 function saveTemplate(){S.myTemplates.unshift({id:uid(),name:P.name,data:JSON.stringify(P)});save();toast('✅ My Templates में सेव हो गया')}
 function useTemplate(id){const x=S.myTemplates.find(a=>a.id===id);const c=JSON.parse(x.data);c.id=uid();c.name=x.name+' (नया)';c.t=Date.now();S.projects.unshift(c);save();closeModal();P=c;go('editor')}
 
 /* ============ एडिटर ============ */
 const ETABS=[['scene','🎬','Scene'],['characters','👤','Chars'],['assets','🖼️','Assets'],['bg','🌄','BG'],['text','🔤','Text'],['voice','🎙️','Voice'],['music','🎵','Music'],['sfx','🔊','SFX'],['anim','🎞️','Anim'],['camera','📷','Camera'],['trans','🔀','Trans']];
 const SFX=['💥 Boom','👏 Clap','🔔 Bell','🐾 Steps','🌧️ Rain','😂 Laugh'];
-const ANIMS=['None','bounce','float','spin','shake','pulse'],TRANS=['None','Fade'];
+const TRANS=['None','Fade','Slide','Zoom'];
+const A_IN={None:'कुछ नहीं',fade:'Fade',slideL:'बाएँ से',slideR:'दाएँ से',slideU:'नीचे से',slideD:'ऊपर से',zoom:'Zoom',bounce:'उछलकर',spin:'घूमकर'};
+const A_OUT={None:'कुछ नहीं',fade:'Fade',slideL:'बाएँ',slideR:'दाएँ',slideU:'ऊपर',slideD:'नीचे',zoom:'Zoom'};
+const A_LOOP={None:'कुछ नहीं',bounce:'उछलना',float:'तैरना',spin:'घूमना',shake:'हिलना',pulse:'धड़कन',wiggle:'डोलना'};
+const ANIMS=Object.keys(A_LOOP);
 const scene=()=>P.scenes[P.cur];
 function renderEditor(){
  if(!P){go('projects');return}
+ stopPlay(true);
  $('#editor').innerHTML=`
  <div class="etop">
   <button onclick="exitEditor()">← ${t('Back')}</button>
@@ -847,7 +894,7 @@ function renderEditor(){
   <button class="sm" onclick="undo()">↶</button><button class="sm" onclick="redo()">↷</button>
   <button class="sm" onclick="copyEl()">${t('Copy')}</button><button class="sm" onclick="pasteEl()">Paste</button>
   <button class="sm" onclick="dupEl()">Duplicate</button><button class="sm" onclick="lockEl()">🔒</button><button class="sm" onclick="hideEl()">👁</button><button class="sm" onclick="delEl()">🗑</button>
-  <button class="sm" onclick="document.getElementById('layers').classList.toggle('open')">🗂 ${t('Layers')}</button>
+  <button class="sm" onclick="document.getElementById('layers').classList.toggle('open')">⚙ Properties</button><button class="sm" onclick="exportJSON()">💾 JSON</button>
   <button class="sm" onclick="saveSceneLib()">सीन सेव</button><button class="sm" onclick="saveTemplate()">टेम्पलेट सेव</button>
   <button class="sm" onclick="startPlay()">▶ ${t('Preview')}</button><button class="pri sm" onclick="exportModal()">${t('Export')}</button>
  </div>
@@ -856,11 +903,12 @@ function renderEditor(){
   <div class="drawer ${dOpen?'open':''}" id="drawer">${drawerHTML()}</div>
   <div class="center"><div class="stagewrap" onclick="if(event.target===this)closeDrawers()"><div id="stage"></div></div>
    <div class="tl"><div class="tlrow"><b style="font-size:12px">${t('Timeline')}</b><button class="sm" onclick="addScene()">＋ ${t('Scene')}</button><button class="sm" onclick="dupScene()">Duplicate</button><button class="sm" onclick="delScene()">Delete</button>
-   <span style="font-size:12px;color:var(--mute)">${t('Duration')}</span><input type="number" min="1" max="30" value="${scene().dur}" style="width:60px;padding:4px" onchange="scene().dur=+this.value;save();drawScenes()"><span id="tlinfo" style="font-size:11px;color:var(--mute)"></span></div>
+   <span style="font-size:12px;color:var(--mute)">${t('Duration')}</span><input type="number" min="1" max="30" value="${scene().dur}" id="durIn" style="width:60px;padding:4px" onchange="scene().dur=Math.max(1,Math.min(30,+this.value||3));save();drawScenes()"><span id="tlinfo" style="font-size:11px;color:var(--mute)"></span></div>
+   <div class="tlrow"><button class="sm pri" id="pbtn" onclick="startPlay()">${playing?'⏸':'▶'}</button><input type="range" id="scrub" min="0" max="${Math.round(totalDur()*100)}" value="${Math.round(sceneStart(P.cur)*100)}" oninput="scrubTo(this.value/100)" style="flex:1;padding:0;min-width:80px"><span id="tclock" style="font-size:11px;color:var(--mute);min-width:64px;text-align:right"></span><button class="sm ${loopPlay?'on':''}" onclick="loopPlay=!loopPlay;this.classList.toggle('on',loopPlay)">🔁</button></div>
    <div class="scenes" id="scenes"></div></div></div>
   <div class="layers" id="layers"></div>
  </div>`;
- sizeStage();drawStage();drawLayers();drawScenes();
+ sizeStage();drawStage();drawLayers();drawScenes();clock(sceneStart(P.cur));
 }
 function pickTab(x){if(etab===x&&mob())dOpen=!dOpen;else{etab=x;dOpen=true}renderEditor()}
 function closeDrawers(){dOpen=false;const d=$('#drawer');if(d)d.classList.remove('open');const l=$('#layers');if(l)l.classList.remove('open')}
@@ -871,7 +919,7 @@ function sizeStage(){
  let W=mw,H=W*h/w;if(H>mh){H=mh;W=H*w/h}
  st.style.width=Math.max(120,W)+'px';st.style.height=Math.max(80,H)+'px';
 }
-addEventListener('resize',()=>{if(view==='editor'){sizeStage();drawStage()}});
+addEventListener('resize',()=>{if(view==='editor'){sizeStage();drawStage(live?{live:true,lt:PB.lt||0}:undefined)}});
 function drawerHTML(){
  const mini=a=>`<div class="mini">${a.map(e=>`<div onclick="addEl({type:'emoji',content:'${e}',name:'${e}'})">${e}</div>`).join('')}</div>`;
  const miniMine=(key)=>S[key].length?`<h3 style="font-size:12px;color:var(--mute)">मेरे</h3><div class="mini">${S[key].map(x=>`<div onclick="addMine('${key}','${x.id}')">${x.img?`<img src="${x.img}" style="width:40px;height:40px;object-fit:contain">`:x.em}</div>`).join('')}</div>`:'';
@@ -884,204 +932,139 @@ function drawerHTML(){
  case'voice':return `<b>${t('Voice')}</b><div class="fld" style="margin-top:8px"><label>इस सीन में क्या बोलना है?</label><textarea rows="3" id="narr" onchange="scene().narr=this.value;save()">${esc(scene().narr||'')}</textarea></div><button class="sm" onclick="scene().narr=$('#narr').value;save();speakNarr(scene())">▶ सुनो</button><p style="color:var(--mute);font-size:12px;margin:10px 0 6px">आवाज़ चुनो (अभी: ${esc(voiceName(P.voice))})</p>${allVoices().map(v=>`<div class="layer"><span class="n">${esc(v.n)} <small style="color:var(--mute)">${v.g}</small></span><button class="sm" onclick="previewVoice('${v.id}')">▶</button><button class="sm" onclick="P.voice='${v.id}';save();renderEditor()">Use</button></div>`).join('')}`;
  case'music':return `<b>${t('Music')}</b><p style="color:var(--mute);font-size:12px;margin:6px 0">अभी: ${P.music||'कोई नहीं'}</p>${P.music?'<button class="sm" onclick="P.music=null;save();stopMusic();renderEditor()">❌ हटाओ</button>':''}`+Object.keys(MUSIC).map(k=>MUSIC[k].map(x=>`<div class="layer"><span class="n">${x}</span><button class="sm" onclick="toggleMusic('${x}')">${musicNow===x?'⏸':'▶'}</button><button class="sm" onclick="P.music='${x}';save();renderEditor()">Use</button></div>`).join('')).join('');
  case'sfx':return `<b>SFX</b><div class="list" style="margin-top:8px">${SFX.map(s=>`<div class="it" style="padding:6px"><span class="t">${s}</span><button class="sm" onclick="addEl({type:'emoji',content:'${s.split(' ')[0]}',name:'SFX ${s.split(' ')[1]}'})">${t('Add')}</button></div>`).join('')}</div>`;
- case'anim':return `<b>${t('Animation')}</b>${sel?`<p style="font-size:12px;color:var(--mute);margin:6px 0">${esc(sel.name)}</p><div class="seg">${ANIMS.map(a=>`<button class="${(sel.anim||'None')===a?'on':''}" onclick="setProp('anim','${a}');renderEditor()">${a}</button>`).join('')}</div>`:'<p style="color:var(--mute);font-size:12px;margin-top:6px">पहले स्टेज पर कोई चीज़ चुनो</p>'}`;
+ case'anim':return `<b>${t('Animation')}</b>`+(sel?animControls():'<p style="color:var(--mute);font-size:12px;margin-top:6px">पहले स्टेज पर कोई चीज़ चुनो</p>');
  case'camera':return `<b>${t('Camera')}</b><p style="color:var(--mute);font-size:12px;margin:6px 0">इस सीन का ज़ूम</p><input type="range" min="100" max="200" value="${scene().zoom||100}" oninput="scene().zoom=+this.value;drawStage()" onchange="save()" style="padding:0">`;
  case'trans':return `<b>${t('Transition')}</b><div class="seg" style="margin-top:8px">${TRANS.map(a=>`<button class="${(scene().trans||'None')===a?'on':''}" onclick="scene().trans='${a}';save();renderEditor()">${a}</button>`).join('')}</div>`;
  }
 }
-function drawStage(){
- const st=$('#stage');if(!st)return;const sc=scene();st.style.background=sc.bg;
- st.innerHTML=`<div style="position:absolute;inset:0;transform:scale(${(sc.zoom||100)/100});transform-origin:center">${sc.els.map(elHTML).join('')}</div>`;
- const W=st.clientWidth;
- st.querySelectorAll('.el').forEach(n=>{
-  const e=sc.els.find(x=>x.id===n.dataset.id);
-  if(e.type==='img')n.firstChild.style.width=(e.size*2.2*W/700)+'px';else n.style.fontSize=(e.size*W/700)+'px';
-  n.onpointerdown=ev=>startDrag(ev,e,n);
- });
+/* ===== एनिमेशन इंजन — प्रीव्यू और एक्सपोर्ट दोनों यही इस्तेमाल करते हैं ===== */
+const EASE=p=>1-Math.pow(1-p,3),clamp01=v=>v<0?0:v>1?1:v;
+function animState(e,lt,dur){
+ let dx=0,dy=0,sc=1,rot=0,op=1;
+ const d=Math.max(.1,e.adur||.6),dl=e.delay||0;
+ if(e.in&&e.in!=='None'){
+  const p=clamp01((lt-dl)/d),q=EASE(p),r=1-q;
+  switch(e.in){
+   case'fade':op=q;break;
+   case'slideL':dx=-.5*r;op=q;break;
+   case'slideR':dx=.5*r;op=q;break;
+   case'slideU':dy=.5*r;op=q;break;
+   case'slideD':dy=-.5*r;op=q;break;
+   case'zoom':sc=.2+.8*q;op=q;break;
+   case'bounce':{const c1=1.70158;sc=1+(c1+1)*Math.pow(p-1,3)+c1*Math.pow(p-1,2);op=p>0?1:0;break}
+   case'spin':rot=-180*r;sc=q;op=q;break;
+  }
+ }
+ if(e.out&&e.out!=='None'){
+  const od=Math.max(.1,e.odur||.6),q=EASE(clamp01((lt-(dur-od))/od));
+  switch(e.out){
+   case'fade':op*=1-q;break;
+   case'slideL':dx-=.5*q;op*=1-q;break;
+   case'slideR':dx+=.5*q;op*=1-q;break;
+   case'slideU':dy-=.5*q;op*=1-q;break;
+   case'slideD':dy+=.5*q;op*=1-q;break;
+   case'zoom':sc*=1-.8*q;op*=1-q;break;
+  }
+ }
+ const L=e.loop||e.anim;
+ if(L&&L!=='None'){
+  const sp=e.lspd||1,w=lt*sp*Math.PI*2/1.2;
+  switch(L){
+   case'bounce':dy-=Math.abs(Math.sin(w/2))*.07;break;
+   case'float':dy+=Math.sin(w)*.03;dx+=Math.cos(w)*.015;break;
+   case'spin':rot+=((lt*sp/1.2)%1)*360;break;
+   case'shake':dx+=Math.sin(w*4)*.012;break;
+   case'pulse':sc*=1+Math.sin(w)*.12;break;
+   case'wiggle':rot+=Math.sin(w*2)*10;break;
+  }
+ }
+ return {dx,dy,sc,rot,op};
+}
+function transState(sc,lt){
+ const T=sc.trans;if(!T||T==='None'||lt>=.5)return {op:1,dx:0,sc:1};
+ const p=EASE(clamp01(lt/.5));
+ if(T==='Fade')return {op:p,dx:0,sc:1};
+ if(T==='Slide')return {op:1,dx:1-p,sc:1};
+ if(T==='Zoom')return {op:p,dx:0,sc:.6+.4*p};
+ return {op:1,dx:0,sc:1};
+}
+function placeEl(n,e,st,a){
+ const W=st.clientWidth,H=st.clientHeight;
+ if(e.type==='img'){const im=n.querySelector('img');if(im)im.style.width=(e.size*2.2*W/700)+'px'}else n.style.fontSize=(e.size*W/700)+'px';
+ n.style.left=e.x+'%';n.style.top=e.y+'%';
+ n.style.transform='translate(calc(-50% + '+(a?a.dx*W:0)+'px),calc(-50% + '+(a?a.dy*H:0)+'px)) rotate('+((e.rot||0)+(a?a.rot:0))+'deg) scale('+(a?a.sc:1)+')';
+ n.style.opacity=(e.op??1)*(a?a.op:1);
+}
+function animFrame(lt){
+ const st=$('#stage');if(!st)return;const sc=scene();PB.lt=lt;
+ st.querySelectorAll('.el').forEach(n=>{const e=sc.els.find(x=>x.id===n.dataset.id);if(e)placeEl(n,e,st,animState(e,lt,sc.dur))});
+ const z=$('#zoomer');if(z){const T=transState(sc,lt),cz=(sc.zoom||100)/100;z.style.transform='translateX('+(T.dx*100)+'%) scale('+(cz*T.sc)+')';z.style.opacity=T.op}
+}
+function drawStage(o){
+ const st=$('#stage');if(!st)return;const sc=scene();live=!!(o&&o.live);
+ st.style.background='#000';
+ st.innerHTML='<div id="zoomer" style="position:absolute;inset:0;background:'+sc.bg+';transform:scale('+((sc.zoom||100)/100)+');transform-origin:center">'+sc.els.map(elHTML).join('')+'</div>';
+ st.onpointerdown=ev=>{if(playing||ev.target.closest('.el'))return;sel=null;st.querySelectorAll('.el').forEach(n=>n.classList.remove('sel'));st.querySelectorAll('.hnd').forEach(h=>h.remove());drawLayers()};
+ st.querySelectorAll('.el').forEach(n=>{const e=sc.els.find(x=>x.id===n.dataset.id);placeEl(n,e,st,null);n.onpointerdown=ev=>startDrag(ev,e,n)});
+ if(live)animFrame((o&&o.lt)||0);
+ else if(sel){const n=st.querySelector('.el[data-id="'+sel.id+'"]');if(n)ensureHandles(n,sel)}
 }
 function elHTML(e){
  if(e.hidden)return '';
- const anim=e.anim&&e.anim!=='None'?`animation:b_${e.anim} 1.2s infinite;`:'';
- const st=`left:${e.x}%;top:${e.y}%;transform:translate(-50%,-50%) rotate(${e.rot||0}deg);${e.type==='text'?`color:${e.color};font-weight:700;text-shadow:0 2px 6px #000;`:''}opacity:${e.op??1};${anim}`;
- return `<div class="el ${sel&&sel.id===e.id?'sel':''}" data-id="${e.id}" style="${st}">${e.type==='img'?`<img src="${e.content}" draggable="false">`:esc(e.content)}</div>`;
+ const st=e.type==='text'?'color:'+e.color+';font-weight:700;text-shadow:0 2px 6px #000;':'';
+ return `<div class="el ${sel&&sel.id===e.id&&!live?'sel':''}" data-id="${e.id}" style="${st}">${e.type==='img'?`<img src="${e.content}" draggable="false">`:esc(e.content)}</div>`;
 }
-const css=document.createElement('style');
-css.textContent=`@keyframes b_bounce{0%,100%{margin-top:0}50%{margin-top:-18px}}@keyframes b_float{0%,100%{margin-top:0}50%{margin-top:-10px;margin-left:8px}}@keyframes b_spin{to{rotate:360deg}}@keyframes b_shake{0%,100%{margin-left:0}25%{margin-left:-8px}75%{margin-left:8px}}@keyframes b_pulse{0%,100%{scale:1}50%{scale:1.25}}`;
-document.head.appendChild(css);
+function ensureHandles(n,e){
+ document.querySelectorAll('#stage .hnd').forEach(h=>h.remove());
+ if(!n||e.locked||e.hidden)return;
+ const mk=k=>{const h=document.createElement('i');h.className='hnd '+k;h.onpointerdown=ev=>{ev.stopPropagation();ev.preventDefault();startHandle(ev,e,n,k)};n.appendChild(h)};
+ mk('ro');mk('rs');
+}
 function startDrag(ev,e,n){
- ev.preventDefault();pick(e);if(e.locked)return;
- const r=$('#stage').getBoundingClientRect();let moved=false;
- const mv=m=>{moved=true;e.x=Math.min(100,Math.max(0,(m.clientX-r.left)/r.width*100));e.y=Math.min(100,Math.max(0,(m.clientY-r.top)/r.height*100));n.style.left=e.x+'%';n.style.top=e.y+'%'};
- const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);if(moved){pushUndo();save()}};
- addEventListener('pointermove',mv);addEventListener('pointerup',up);
+ ev.preventDefault();if(playing)return;
+ if(live){live=false;drawStage();n=document.querySelector('#stage .el[data-id="'+e.id+'"]')||n}
+ pick(e);if(e.locked)return;
+ const st=$('#stage'),r=st.getBoundingClientRect(),before=snap();let moved=false;
+ const mv=m=>{moved=true;e.x=Math.round(Math.min(100,Math.max(0,(m.clientX-r.left)/r.width*100))*10)/10;e.y=Math.round(Math.min(100,Math.max(0,(m.clientY-r.top)/r.height*100))*10)/10;placeEl(n,e,st,null)};
+ const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up);if(moved){commitUndo(before);save();drawLayers()}};
+ addEventListener('pointermove',mv);addEventListener('pointerup',up);addEventListener('pointercancel',up);
 }
-function pick(e){sel=e;document.querySelectorAll('.el').forEach(n=>n.classList.toggle('sel',n.dataset.id===e.id));drawLayers()}
+function startHandle(ev,e,n,k){
+ const st=$('#stage'),r=st.getBoundingClientRect(),cx=r.left+e.x/100*r.width,cy=r.top+e.y/100*r.height;
+ const d0=Math.hypot(ev.clientX-cx,ev.clientY-cy)||1,a0=Math.atan2(ev.clientY-cy,ev.clientX-cx),s0=e.size,r0=e.rot||0,before=snap();let moved=false;
+ const mv=m=>{moved=true;
+  if(k==='rs')e.size=Math.round(Math.max(8,Math.min(400,s0*Math.hypot(m.clientX-cx,m.clientY-cy)/d0)));
+  else{let v=Math.round(r0+(Math.atan2(m.clientY-cy,m.clientX-cx)-a0)*180/Math.PI);v=((v+180)%360+360)%360-180;e.rot=v}
+  placeEl(n,e,st,null)};
+ const up=()=>{removeEventListener('pointermove',mv);removeEventListener('pointerup',up);removeEventListener('pointercancel',up);if(moved){commitUndo(before);save();drawLayers()}};
+ addEventListener('pointermove',mv);addEventListener('pointerup',up);addEventListener('pointercancel',up);
+}
+function pick(e){
+ sel=e;const st=$('#stage');let nn=null;
+ st.querySelectorAll('.el').forEach(n=>{const on=n.dataset.id===e.id;n.classList.toggle('sel',on);if(on)nn=n});
+ ensureHandles(nn,e);drawLayers();
+}
+const sl=(k,l,mn,mx,v,sc,stp)=>{sc=sc||1;return `<div class="prop"><label>${l}: <span data-pv="${k}">${Math.round(v*sc*10)/10}</span></label><input type="range" min="${mn}" max="${mx}" step="${stp||1}" value="${v*sc}" oninput="propLive('${k}',${sc},this)" onchange="propCommit()"></div>`};
+function animControls(){
+ const opts=(M,cur)=>Object.keys(M).map(k=>`<option value="${k}" ${(cur||'None')===k?'selected':''}>${M[k]}</option>`).join('');
+ const L=sel.loop||sel.anim||'None';
+ return `<div class="pgrp"><b>🎞 एनिमेशन</b>
+ <div class="prop"><label>आने का (Entrance)</label><select onchange="setProp('in',this.value)">${opts(A_IN,sel.in)}</select></div>
+ ${sl('delay','देरी (सेकंड)',0,10,sel.delay||0,1,.1)}${sl('adur','आने में समय (सेकंड)',.2,3,sel.adur||.6,1,.1)}
+ <div class="prop"><label>जाने का (Exit)</label><select onchange="setProp('out',this.value)">${opts(A_OUT,sel.out)}</select></div>
+ ${sl('odur','जाने में समय (सेकंड)',.2,3,sel.odur||.6,1,.1)}
+ <div class="prop"><label>लगातार (Loop)</label><select onchange="setProp('loop',this.value)">${opts(A_LOOP,L)}</select></div>
+ ${sl('lspd','Loop की स्पीड',.3,3,sel.lspd||1,1,.1)}
+ <p style="font-size:11px;color:var(--mute)">असर देखने के लिए नीचे ▶ दबाओ या स्लाइडर खींचो।</p></div>`;
+}
+function propsHTML(){
+ const nm=(k,l)=>`<div><label>${l}</label><input type="number" min="0" max="100" value="${Math.round(sel[k])}" onchange="setProp('${k}',Math.max(0,Math.min(100,+this.value||0)))"></div>`;
+ return `<div class="pgrp"><b>स्थिति और साइज़</b>
+ <div class="pnum" style="margin:6px 0">${nm('x','X %')}${nm('y','Y %')}</div>
+ ${sl('size','साइज़',8,400,sel.size)}${sl('rot','घुमाओ (°)',-180,180,sel.rot||0)}${sl('op','पारदर्शिता %',10,100,sel.op??1,100)}
+ ${sel.type==='text'?`<div class="prop"><label>टेक्स्ट</label><input value="${esc(sel.content)}" oninput="textLive(this.value)" onchange="propCommit();drawLayers()"></div><div class="prop"><label>रंग</label><input type="color" value="${esc(sel.color||'#ffffff')}" onchange="setProp('color',this.value)" style="height:38px;padding:2px"></div>`:''}
+ <div class="prop"><button class="sm" onclick="layerMove(1)">⬆ आगे</button><button class="sm" onclick="layerMove(-1)">⬇ पीछे</button><button class="sm" onclick="dupEl()">⎘</button><button class="sm" onclick="delEl()">🗑</button></div></div>${animControls()}`;
+}
 function drawLayers(){
  const L=$('#layers');if(!L)return;const sc=scene();
- L.innerHTML=`<b>${t('Layers')}</b><div style="margin-top:8px">${[...sc.els].reverse().map(e=>`<div class="layer ${sel&&sel.id===e.id?'on':''}" onclick="pickId('${e.id}')"><span>${e.type==='text'?'🔤':e.type==='img'?'🖼️':e.content}</span><span class="n">${esc(e.name)}</span><i onclick="event.stopPropagation();togLock('${e.id}')">${e.locked?'🔒':'🔓'}</i><i onclick="event.stopPropagation();togHide('${e.id}')">${e.hidden?'🙈':'👁'}</i></div>`).join('')||'<small style="color:var(--mute)">खाली</small>'}</div>
- ${sel?`<hr style="border:0;border-top:1px solid var(--line);margin:12px 0"><div class="prop"><label>साइज़</label><input type="range" min="10" max="200" value="${sel.size}" oninput="setProp('size',+this.value,1)" onchange="pushUndo();save()"></div>
- <div class="prop"><label>घुमाओ</label><input type="range" min="-180" max="180" value="${sel.rot||0}" oninput="setProp('rot',+this.value,1)" onchange="pushUndo();save()"></div>
- <div class="prop"><label>पारदर्शिता</label><input type="range" min="10" max="100" value="${(sel.op??1)*100}" oninput="setProp('op',this.value/100,1)" onchange="pushUndo();save()"></div>
- <div class="prop"><button class="sm" onclick="layerMove(1)">⬆ आगे</button><button class="sm" onclick="layerMove(-1)">⬇ पीछे</button></div>`:''}`;
-}
-function pickId(id){sel=scene().els.find(x=>x.id===id);drawStage();drawLayers()}
-function drawScenes(){
- const s=$('#scenes');if(!s)return;
- s.innerHTML=P.scenes.map((sc,i)=>`<div class="sc ${i===P.cur?'on':''}" style="background:${sc.bg}" onclick="P.cur=${i};sel=null;renderEditor()"><b style="text-shadow:0 1px 3px #000">${i+1}. ${esc(sc.name)}</b><span style="text-shadow:0 1px 3px #000">${sc.dur}s • ${sc.els.length}</span></div>`).join('');
- const tot=P.scenes.reduce((a,b)=>a+b.dur,0),ti=$('#tlinfo');
- if(ti)ti.textContent=t('Total')+' '+tot+'s'+(P.music?' • 🎵 '+P.music:'')+(P.voice?' • 🎙️ '+voiceName(P.voice):'');
-}
-const snap=()=>JSON.stringify(P.scenes);
-function pushUndo(){undoStack.push(snap());if(undoStack.length>40)undoStack.shift();redoStack=[]}
-function undo(){if(!undoStack.length)return;redoStack.push(snap());P.scenes=JSON.parse(undoStack.pop());sel=null;P.cur=Math.min(P.cur,P.scenes.length-1);save();renderEditor()}
-function redo(){if(!redoStack.length)return;undoStack.push(snap());P.scenes=JSON.parse(redoStack.pop());sel=null;P.cur=Math.min(P.cur,P.scenes.length-1);save();renderEditor()}
-function addEl(o){
- if(!P||view!=='editor')return;pushUndo();
- const e={id:uid(),type:o.type,content:o.content,name:o.name||o.content,x:50,y:55,size:o.type==='text'?36:70,rot:0,op:1,color:o.color||'#ffffff'};
- scene().els.push(e);sel=e;if(o.type==='emoji')addRecent(o.content);P.t=Date.now();save();drawStage();drawLayers();drawScenes();
- if(mob()){dOpen=false;const d=$('#drawer');if(d)d.classList.remove('open')}
-}
-function addText(){const v=$('#txin').value.trim();if(!v){toast('कुछ लिखो');return}addEl({type:'text',content:v,name:'टेक्स्ट: '+v.slice(0,10)});$('#txin').value=''}
-function setProp(k,v,live){if(!sel)return;sel[k]=v;if(live)drawStage();else{pushUndo();save();drawStage()}}
-function delEl(){if(!sel){toast('पहले कुछ चुनो');return}pushUndo();const sc=scene();sc.els=sc.els.filter(x=>x.id!==sel.id);sel=null;save();drawStage();drawLayers();drawScenes()}
-let clip=null;
-function copyEl(){if(!sel){toast('पहले कुछ चुनो');return}clip=JSON.parse(JSON.stringify(sel));toast('कॉपी हो गया')}
-function pasteEl(){if(!clip){toast('पहले कॉपी करो');return}pushUndo();const e=JSON.parse(JSON.stringify(clip));e.id=uid();e.x=Math.min(95,e.x+5);e.y=Math.min(95,e.y+5);scene().els.push(e);sel=e;save();drawStage();drawLayers();drawScenes()}
-function dupEl(){if(!sel){toast('पहले कुछ चुनो');return}clip=JSON.parse(JSON.stringify(sel));pasteEl()}
-function lockEl(){if(!sel){toast('पहले कुछ चुनो');return}togLock(sel.id)}
-function hideEl(){if(!sel){toast('पहले कुछ चुनो');return}togHide(sel.id)}
-function togLock(id){const e=scene().els.find(x=>x.id===id);e.locked=!e.locked;save();drawLayers()}
-function togHide(id){const e=scene().els.find(x=>x.id===id);e.hidden=!e.hidden;save();drawStage();drawLayers()}
-function layerMove(d){const a=scene().els,i=a.findIndex(x=>x.id===sel.id),j=i+d;if(j<0||j>=a.length)return;pushUndo();[a[i],a[j]]=[a[j],a[i]];save();drawStage();drawLayers()}
-function setBG(k){pushUndo();scene().bg=SCENEBG[k];scene().name=k;save();renderEditor()}
-function setBGc(c){pushUndo();scene().bg=c;save();renderEditor()}
-function addScene(){pushUndo();P.scenes.push({id:uid(),bg:scene().bg,els:[],dur:3,name:'सीन '+(P.scenes.length+1)});P.cur=P.scenes.length-1;sel=null;save();renderEditor()}
-function dupScene(){pushUndo();const c=JSON.parse(snap())[P.cur];c.id=uid();c.els.forEach(e=>e.id=uid());P.scenes.splice(P.cur+1,0,c);P.cur++;save();renderEditor()}
-function delScene(){if(P.scenes.length<2){toast('कम से कम 1 सीन चाहिए');return}pushUndo();P.scenes.splice(P.cur,1);P.cur=Math.max(0,P.cur-1);sel=null;save();renderEditor()}
-function saveSceneLib(){const sc=scene();S.myScenes.unshift({id:uid(),name:P.name+' - '+sc.name,bg:sc.bg,els:JSON.parse(JSON.stringify(sc.els))});save();toast('✅ My Scenes में सेव हो गया')}
-function setRatio(r){P.ratio=r;save();document.querySelectorAll('#xr button,.rbtn').forEach(b=>b.classList.toggle('on',b.textContent===r));sizeStage();drawStage()}
-
-/* प्रीव्यू */
-let previewMusic=false;
-function startPlay(){
- if(playing){stopPlay();return}
- playing=true;const keep=P.cur;let i=0;sel=null;closeDrawers();
- const step=()=>{
-  if(!playing)return;
-  if(i>=P.scenes.length){stopPlay();P.cur=keep;renderEditor();toast('प्रीव्यू पूरा हुआ');return}
-  P.cur=i;drawStage();drawScenes();speakNarr(P.scenes[i]);
-  if(P.scenes[i].trans==='Fade'){const st=$('#stage');st.style.transition='none';st.style.opacity=0;setTimeout(()=>{st.style.transition='opacity .5s';st.style.opacity=1},30)}
-  playT=setTimeout(()=>{i++;step()},P.scenes[i].dur*1000);
- };
- if(P.music){playMusic(P.music);previewMusic=true}
- toast('▶ प्रीव्यू चल रहा है (दोबारा दबाओ = रोको)');step();
-}
-function stopPlay(){playing=false;clearTimeout(playT);if(previewMusic){stopMusic();previewMusic=false}try{speechSynthesis.cancel()}catch(e){}const st=$('#stage');if(st){st.style.transition='';st.style.opacity=1}}
-
-/* ============ संगीत इंजन (सटीक टाइमिंग, बिना अटके) ============ */
-let AC=null,mTimer=null,musicNow=null;
-const MSTYLE={
- Intense:{bpm:150,sc:[0,1,4,5,7,8],w:'sawtooth',b:45,v:.05,k:1},Mystical:{bpm:68,sc:[0,2,3,7,9],w:'sine',b:57,v:.12,k:0},
- 'Pop-Romantic':{bpm:104,sc:[0,2,4,7,9],w:'triangle',b:55,v:.12,k:1},Bright:{bpm:124,sc:[0,2,4,5,7,9,11],w:'square',b:60,v:.04,k:1},
- Romance:{bpm:76,sc:[0,2,4,7,9],w:'sine',b:55,v:.13,k:0},Lullaby:{bpm:60,sc:[0,2,4,7],w:'sine',b:64,v:.13,k:0},
- Mysterious:{bpm:80,sc:[0,1,3,6,7],w:'triangle',b:52,v:.12,k:0},Rhymes:{bpm:112,sc:[0,2,4,5,7,9],w:'square',b:62,v:.04,k:1},
- Suspense:{bpm:90,sc:[0,1,3,6],w:'sawtooth',b:43,v:.04,k:1},Village:{bpm:100,sc:[0,2,4,7,9],w:'triangle',b:57,v:.13,k:1},
- Horror:{bpm:55,sc:[0,1,6,7],w:'sawtooth',b:36,v:.04,k:0},New:{bpm:118,sc:[0,3,5,7,10],w:'triangle',b:57,v:.12,k:1}
-};
-const trackCat=x=>{for(const c in MUSIC)if(MUSIC[c].includes(x))return c;return 'Bright'};
-const hashS=s=>{let h=7;for(const c of s)h=(h*31+c.charCodeAt(0))>>>0;return h};
-function playMusic(x){
- stopMusic();
- try{if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();AC.master=AC.createGain();AC.master.gain.value=.9;AC.master.connect(AC.destination)}AC.resume()}catch(e){toast('इस डिवाइस पर आवाज़ नहीं चल सकती');return}
- const st=MSTYLE[trackCat(x)];let seed=hashS(x);
- const rnd=()=>{seed=(seed*1664525+1013904223)>>>0;return seed/4294967296};
- const pat=Array.from({length:16},()=>rnd()<.25?-1:Math.floor(rnd()*st.sc.length));
- const beat=60/st.bpm/2,hz=m=>440*Math.pow(2,(m-69)/12);
- const note=(f,d,type,vol,when)=>{const o=AC.createOscillator(),g=AC.createGain();o.type=type;o.frequency.value=f;g.gain.setValueAtTime(0,when);g.gain.linearRampToValueAtTime(vol,when+.02);g.gain.exponentialRampToValueAtTime(.0001,when+d);o.connect(g);g.connect(AC.master);o.start(when);o.stop(when+d+.05)};
- let i=0,next=AC.currentTime+.06;
- const sched=()=>{
-  while(next<AC.currentTime+.3){
-   const s=i%16,p=pat[s];
-   if(p>=0)note(hz(st.b+12+st.sc[p]),beat*1.8,st.w,st.v,next);
-   if(s%4===0){note(hz(st.b-12+st.sc[s/4]),beat*3.5,'triangle',.18,next);if(st.k)note(60,.15,'sine',.3,next)}
-   next+=beat;i++;
-  }
- };
- sched();mTimer=setInterval(sched,60);musicNow=x;
-}
-function stopMusic(){clearInterval(mTimer);mTimer=null;musicNow=null}
-function toggleMusic(x){
- if(musicNow===x)stopMusic();else playMusic(x);
- if(view==='music')go('music');else if(view==='editor'){const d=$('#drawer');if(d)d.innerHTML=drawerHTML()}
-}
-
-/* ============ एक्सपोर्ट (असली वीडियो + इमेज) ============ */
-function exportModal(){
- modal(`<h3>📤 ${t('Export')}</h3>
- <div class="fld"><label>साइज़ (Aspect Ratio)</label><div class="seg" id="xr">${Object.keys(RATIOS).map(r=>`<button class="${P.ratio===r?'on':''}" onclick="setRatio('${r}')">${r}</button>`).join('')}</div></div>
- <div class="fld"><label>रेज़ोल्यूशन</label><select id="xres"><option>720p</option><option ${P.res==='1080p'?'selected':''}>1080p</option><option>4K</option></select></div>
- <div class="fld"><label>FPS</label><select id="xfps"><option>24</option><option selected>30</option></select></div>
- <div class="fld"><label><input type="checkbox" id="xwm" checked style="width:auto"> Blackora वॉटरमार्क लगाओ</label></div>
- <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="pri" onclick="exportVideo()">🎬 वीडियो बनाओ</button><button onclick="exportImage()">🖼️ इमेज</button><button onclick="save();closeModal();toast('प्रोजेक्ट सेव हो गया')">💾 सेव</button></div>
- <p style="color:var(--mute);font-size:11px;margin-top:10px">वीडियो बनते समय स्क्रीन चालू रखो और दूसरे ऐप में मत जाओ। म्यूज़िक वीडियो में शामिल होता है। सीन की आवाज़/डायलॉग अभी वीडियो फ़ाइल में नहीं जुड़ते, वह प्रीव्यू में सुनाई देते हैं।</p>`);
-}
-const bgURL=sc=>{const m=sc.bg.match(/url\('?([^')]+)'?\)/);return m?m[1]:null};
-async function preloadScene(sc){const u=[];const b=bgURL(sc);if(b)u.push(b);sc.els.forEach(e=>{if(e.type==='img')u.push(e.content)});await Promise.all(u.map(loadImg))}
-function drawSceneSync(x,sc,cw,ch,wm){
- const b=bgURL(sc);
- if(b&&imgCache[b]){const im=imgCache[b],r=Math.max(cw/im.width,ch/im.height),w=im.width*r,h=im.height*r;x.drawImage(im,(cw-w)/2,(ch-h)/2,w,h)}
- else{
-  const m=sc.bg.match(/#[0-9a-fA-F]{3,6}/g)||['#334155'];
-  if(sc.bg.includes('gradient')&&m.length>=2){const g=x.createLinearGradient(0,0,0,ch);g.addColorStop(0,m[0]);g.addColorStop(.6,m[0]);g.addColorStop(.6,m[1]);g.addColorStop(1,m[1]);x.fillStyle=g}else x.fillStyle=m[0];
-  x.fillRect(0,0,cw,ch);
- }
- const z=(sc.zoom||100)/100;x.save();x.translate(cw/2,ch/2);x.scale(z,z);x.translate(-cw/2,-ch/2);
- x.textAlign='center';x.textBaseline='middle';
- sc.els.filter(e=>!e.hidden).forEach(e=>{
-  x.save();x.globalAlpha=e.op??1;x.translate(e.x/100*cw,e.y/100*ch);x.rotate((e.rot||0)*Math.PI/180);
-  if(e.type==='img'){const im=imgCache[e.content];if(im){const w=e.size*2.2*cw/700,h=w*im.height/im.width;x.drawImage(im,-w/2,-h/2,w,h)}}
-  else{x.font=(e.type==='text'?'bold ':'')+(e.size*cw/700)+'px sans-serif';if(e.type==='text'){x.shadowColor='#000';x.shadowBlur=6}x.fillStyle=e.color||'#fff';x.fillText(e.content,0,0)}
-  x.restore();
- });
- x.restore();
- if(wm){x.font='bold '+Math.round(cw/45)+'px sans-serif';x.fillStyle='#ffffffaa';x.textAlign='right';x.fillText('Blackora',cw-16,ch-18)}
-}
-function dims(){
- const [rw,rh]=RATIOS[P.ratio],sh={'720p':720,'1080p':1080,'4K':2160}[($('#xres')||{}).value||P.res]||720;
- let cw,ch;if(rw>=rh){ch=sh;cw=Math.round(sh*rw/rh)}else{cw=sh;ch=Math.round(sh*rh/rw)}
- const cap=Math.min(1,1920/Math.max(cw,ch));return [Math.round(cw*cap/2)*2,Math.round(ch*cap/2)*2];
-}
-async function exportImage(){
- const wm=$('#xwm').checked,[cw,ch]=dims();await preloadScene(scene());
- const c=document.createElement('canvas');c.width=cw;c.height=ch;drawSceneSync(c.getContext('2d'),scene(),cw,ch,wm);
- try{const a=document.createElement('a');a.download=P.name+'.png';a.href=c.toDataURL('image/png');a.click();toast('✅ इमेज डाउनलोड हो गई')}catch(e){toast('इस सीन में बाहर की तस्वीर है जो सेव नहीं हो सकी')}
-}
-async function exportVideo(){
- if(!window.MediaRecorder){toast('इस ब्राउज़र में वीडियो एक्सपोर्ट नहीं चलता — Chrome इस्तेमाल करो');return}
- P.res=$('#xres').value;P.fps=+$('#xfps').value;const wm=$('#xwm').checked;save();
- const [cw,ch]=dims();
- modal('<h3>🎬 वीडियो बन रही है…</h3><p id="xp" style="margin:10px 0">तैयारी…</p><small style="color:var(--mute)">इस पेज को बंद मत करना</small>');
- for(const sc of P.scenes)await preloadScene(sc);
- const c=document.createElement('canvas');c.width=cw;c.height=ch;const x=c.getContext('2d');
- const stream=c.captureStream(P.fps);let dest=null;
- if(P.music){playMusic(P.music);if(AC){dest=AC.createMediaStreamDestination();AC.master.connect(dest);dest.stream.getAudioTracks().forEach(tr=>stream.addTrack(tr))}}
- const mime=['video/mp4;codecs=avc1','video/webm;codecs=vp9,opus','video/webm'].find(m=>MediaRecorder.isTypeSupported(m))||'';
- let rec;try{rec=new MediaRecorder(stream,mime?{mimeType:mime,videoBitsPerSecond:6e6}:{})}catch(e){closeModal();stopMusic();toast('वीडियो एक्सपोर्ट शुरू नहीं हो सका');return}
- const chunks=[];rec.ondataavailable=e=>{if(e.data.size)chunks.push(e.data)};
- const done=new Promise(r=>rec.onstop=r);rec.start(250);
- const total=P.scenes.reduce((a,b)=>a+b.dur,0)*1000,t0=performance.now();
- await new Promise(res=>{const f=()=>{
-  const el=performance.now()-t0;if(el>=total){res();return}
-  let acc=0,idx=P.scenes.length-1;for(let i=0;i<P.scenes.length;i++){if(el<acc+P.scenes[i].dur*1000){idx=i;break}acc+=P.scenes[i].dur*1000}
-  drawSceneSync(x,P.scenes[idx],cw,ch,wm);const xp=$('#xp');if(xp)xp.textContent=Math.round(el/total*100)+'% हो गया';requestAnimationFrame(f)};f()});
- rec.stop();await done;stopMusic();if(dest){try{AC.master.disconnect(dest)}catch(e){}}
- const blob=new Blob(chunks,{type:mime||'video/webm'}),ext=mime.includes('mp4')?'mp4':'webm';
- const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=P.name+'.'+ext;a.click();
- closeModal();toast('✅ वीडियो डाउनलोड हो गई ('+ext+')');
-}
-
-/* शुरू */
-if(S.user)go('home');
-</script>
-</body>
-</html>
+ L.innerHTML=`<b>Properties</b><div style="margin-top:8px">${[...sc.els].reverse().map(e=>`<div class="layer ${sel&&sel.id===e.id?'on':''}" onclick="pickId('${e.id}')"><span>${e.type==='text'?'🔤':e.type==='img'?'🖼️':e.content}</span><span class="n">${esc(e.name)}</span><i onclick="event.stopPropagation();togLock('${e.id}')">${e.locked?'🔒':'🔓'}</i><i onclick="event.stopPropagation();togHide('${e.id}')">${e.hidden?'🙈':'👁'}</i></div>`).join('')||'<small style="color:var(--mute)">खाली — बाईं तरफ़ 
